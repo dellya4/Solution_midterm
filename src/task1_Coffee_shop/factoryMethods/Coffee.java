@@ -1,8 +1,24 @@
 package task1_Coffee_shop.factoryMethods;
 
-public interface Coffee { // Interface Coffee
+public abstract class Coffee { // Abstract class Coffee
+    public String description;
+    public int cost;
 
-    public int getCost(); // Function which get price
-    public String getDescription(); // Function which get description
-    public void describe(); // Function which describe
+    public Coffee(String description, int cost) {
+        this.description = description;
+        this.cost = cost;
+    }
+
+    public int getCost() { // Function which return cost of coffee
+        return cost;
+    }
+
+    public String getDescription() { // Function which return description of coffee
+        return description;
+    }
+
+    public void describe() { // Function which describes coffee
+        System.out.println("Description: "+description+"\nPrice: "+cost +" ₸");
+    }
+
 }

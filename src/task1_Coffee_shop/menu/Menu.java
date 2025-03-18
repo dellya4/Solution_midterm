@@ -12,24 +12,32 @@ public class Menu {
     public void start() { // Start function
         showWelcome();
         selectCoffee();
-        addToppings();
+        addSyrup();
+        addTopping();
         showFinalCoffee();
         showEnd();
     }
 
     private void showWelcome() { // Hello words and type of coffee
-        System.out.println("""
+        int espressoPrice = 900;
+        int cappuccinoPrice = 1250;
+        int lattePrice = 1250;
+        int americanoPrice = 1050;
+        System.out.printf("""
                 Welcome to our Coffee Shop! ☕️
                 Here, you can choose your favorite coffee \
                 and customize it with a variety of ingredients and toppings.
 
                 Please select your base coffee:
-                1. Espresso. Strong black coffee with rich flavor
-                2. Cappuccino. Coffee with milk foam and smooth taste
-                3. Latte. Mild coffee with plenty of milk
-                4. Americano. Light black coffee diluted with water
+                1. Espresso. Strong black coffee with rich flavor (%d₸)
+                2. Cappuccino. Coffee with milk foam and smooth taste (%d₸)
+                3. Latte. Mild coffee with plenty of milk (%d₸)
+                4. Americano. Light black coffee diluted with water (+%d₸)
 
-                Please enter the name of your coffee:""");
+                Please enter the name of your coffee:
+                """,
+                espressoPrice, cappuccinoPrice, lattePrice, americanoPrice
+                );
     }
 
     private void selectCoffee() { // Select basic coffee
@@ -38,43 +46,72 @@ public class Menu {
         coffee.describe();
     }
 
-    private void addToppings() { // Add toppings
-        boolean adding = true;
-        while (adding) {
-            System.out.println("""
+    private void addSyrup() { // Add toppings
+        int chocolatePrice = 250;
+        int saltCaramel = 200;
+        int Pistachio = 200;
+        System.out.printf("""
                     You can add one of the following toppings to your coffee (+200₸ each):
-                    1. Chocolate syrup
-                    2. Salted caramel
-                    3. Pistachio syrup
-                    4. Whipped Cream
-                    0. Done adding toppings or not adding toppings
+                    0. Not adding syrup.
+                    1. Chocolate syrup (+%d₸)
+                    2. Salted caramel (+%d₸)
+                    3. Pistachio syrup (+%d₸)
 
-                    Please select an option (number):""");
+                    Please select an option (number):
+                    """,
+                chocolatePrice, saltCaramel, Pistachio);
 
-            int answer = sc.nextInt();
-            switch (answer) {
-                case 1:
-                    coffee = new ChocolateDecorator(coffee);
-                    System.out.println("Added: Chocolate syrup");
-                    break;
-                case 2:
-                    coffee = new SaltCaramelDecorator(coffee);
-                    System.out.println("Added: Salted caramel");
-                    break;
-                case 3:
-                    coffee = new PistachioDecorator(coffee);
-                    System.out.println("Added: Pistachio syrup");
-                    break;
-                case 4:
-                    coffee = new WhippedCreamDecorator(coffee);
-                    System.out.println("Added: Whipped Cream");
-                    break;
-                case 0:
-                    adding = false;
-                    break;
-                default:
-                    System.out.println("Invalid option. Please try again.");
-            }
+        int answer = sc.nextInt();
+        switch (answer) {
+            case 1:
+                coffee = new ChocolateDecorator(coffee);
+                System.out.println("Added: Chocolate syrup");
+                break;
+            case 2:
+                coffee = new SaltCaramelDecorator(coffee);
+                System.out.println("Added: Salted caramel");
+                break;
+            case 3:
+                coffee = new PistachioDecorator(coffee);
+                System.out.println("Added: Pistachio syrup");
+                break;
+            default:
+                System.out.println("Invalid option. Please try again.");
+        }
+    }
+
+
+    private void addTopping() {
+        int cinnamonPrice = 250;
+        int whippedCreamPrice = 300;
+        int honeyPrice = 150;
+        System.out.printf("""
+                    You can add one of the following toppings to your coffee:
+                    0. Not adding toppings
+                    1. Cinnamon (+%d₸)
+                    2. Whipped cream (+%d₸)
+                    3. Honey (+%d₸)
+
+                    Please select an option (number):
+                    """,
+                cinnamonPrice, whippedCreamPrice, honeyPrice);
+
+        int answer = sc.nextInt();
+        switch (answer) {
+            case 1:
+                coffee = new CinnamonDecorator(coffee);
+                System.out.println("Added: Cinnamon");
+                break;
+            case 2:
+                coffee = new WhippedCreamDecorator(coffee);
+                System.out.println("Added: Whipped cream");
+                break;
+            case 3:
+                coffee = new HoneyDecorator(coffee);
+                System.out.println("Added: Honey");
+                break;
+            default:
+                System.out.println("Invalid option. Please try again.");
         }
     }
 

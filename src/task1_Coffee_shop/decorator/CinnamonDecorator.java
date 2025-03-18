@@ -2,12 +2,12 @@ package task1_Coffee_shop.decorator;
 
 import task1_Coffee_shop.factoryMethods.Coffee;
 
-public class WhippedCreamDecorator extends CoffeeDecorator {
+public class CinnamonDecorator extends CoffeeDecorator {
     int toppingPrice;
 
-    public WhippedCreamDecorator(Coffee coffee) {
+    public CinnamonDecorator(Coffee coffee) {
         super(coffee);
-        this.toppingPrice = 300;
+        this.toppingPrice = 250;
     }
 
     @Override

@@ -2,10 +2,11 @@ package task1_Coffee_shop.decorator;
 
 import task1_Coffee_shop.factoryMethods.Coffee;
 
-public abstract class CoffeeDecorator implements Coffee { // Decorator for coffee with doping
+public abstract class CoffeeDecorator extends Coffee { // Decorator for coffee with doping
     protected Coffee coffee;
 
     public CoffeeDecorator(Coffee coffee) { // Constructor for decorator
+        super(coffee.getDescription(), coffee.getCost());
         this.coffee = coffee;
     }
 
