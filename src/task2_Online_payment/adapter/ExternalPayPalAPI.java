@@ -1,4 +1,4 @@
-package task2_Online_payment.decorator;
+package task2_Online_payment.adapter;
 
 public class ExternalPayPalAPI { // Old PayPal
     public boolean makePayment(String email, double amount) {

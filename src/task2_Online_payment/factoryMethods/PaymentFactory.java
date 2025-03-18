@@ -1,6 +1,6 @@
 package task2_Online_payment.factoryMethods;
 
-import task2_Online_payment.decorator.PayPalPayment;
+import task2_Online_payment.adapter.PayPalPayment;
 import task2_Online_payment.payment.*;
 
 public class PaymentFactory { // Class for factory method
